@@ -19,6 +19,9 @@ var buddies = [
 var lands = ['The Shire', 'Rivendell', 'Mordor'];
 var body = document.querySelector('body');
 var rivendell;
+var budUl;
+var hobbitss;
+var ulHB;
 
 
 // Part 1
@@ -50,7 +53,7 @@ makeMiddleEarth();
 // Part 2
 
 function makeHobbits() {
-  var hobbitss = document.createElement('ul');
+    hobbitss = document.createElement('ul');
   for(var i=0; i<hobbits.length; i++){
     var hobList=document.createElement("li");
     var hobNote=document.createTextNode(hobbits[i]);
@@ -89,7 +92,7 @@ function makeBuddies() {
   // attach an unordered list of the 'buddies' in the aside
   // insert your aside as a child element of rivendell
   var aside=document.createElement('aside');
-  var budUl=document.createElement('ul');
+    budUl=document.createElement('ul');
   for(var i=0;i<buddies.length;i++){
     var budLi=document.createElement('li');
     var budContent=document.createTextNode(buddies[i]);
@@ -131,17 +134,19 @@ function forgeTheFellowShip() {
   // create a new div called 'the-fellowship' within rivendell
   // add each hobbit and buddy one at a time to 'the-fellowship'
   // after each character is added make an alert that they have joined your party
+  ulHB=document.createElement('ul');
+  ulHB.appendChild(budUl);
+  ulHB.appendChild(hobbitss);
+
   var fellowShip=document.createElement('div');
-  fellowShip.setAttribute('id','the-fellowship')
+  fellowShip.setAttribute('id','the-fellowship');
+  fellowShip.appendChild(ulHB);
   
   //var stupidBitch=document.querySelector('article');
-  for(i=0;i<rivendell.length;i++){
-    fellowship.appendChild(rivendell[i]);
-  }
+  //for(i=0;i<rivendell.length;i++){fellowship.appendChild(rivendell[i]);}
   //var stupidHobbit=document.
   //fellowShip.appendChild(stupidElves);
-  //rivendell.appendChild(fellowShip);
-  console.log(fellowShip);
+  rivendell.appendChild(fellowShip);
 }
 forgeTheFellowShip();
 
